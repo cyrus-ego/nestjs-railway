@@ -77,6 +77,7 @@ Tạo file `railway.json` tại thư mục gốc:
 ```
 
 > **Giải thích:**
+>
 > - `NIXPACKS`: Railway tự động detect Node.js và build
 > - `start:prod`: chạy `node dist/main` (đã build sẵn)
 > - `healthcheckPath`: Railway ping `/` để kiểm tra app đã sẵn sàng
@@ -126,6 +127,7 @@ railway init
 ```
 
 Khi được hỏi:
+
 - **"Create new project"** → Chọn tạo mới
 - Đặt tên project: `nestjs-railway`
 
@@ -139,6 +141,7 @@ railway up
 ```
 
 Railway sẽ thực hiện:
+
 1. Upload source code
 2. Build với Nixpacks (tự detect Node.js)
 3. Chạy `npm install` → `npm run build` → `npm run start:prod`
@@ -226,35 +229,42 @@ git push origin main
 
 ## Lệnh Railway CLI thường dùng
 
-| Lệnh | Mô tả |
-|------|-------|
-| `railway login` | Đăng nhập |
-| `railway init` | Tạo/link project |
-| `railway up` | Deploy code |
-| `railway logs` | Xem logs realtime |
-| `railway open` | Mở app trên browser |
-| `railway domain` | Tạo/quản lý domain |
-| `railway variables` | Quản lý env vars |
-| `railway status` | Xem trạng thái deployment |
+
+| Lệnh                | Mô tả                              |
+| ------------------- | ---------------------------------- |
+| `railway login`     | Đăng nhập                          |
+| `railway init`      | Tạo/link project                   |
+| `railway up`        | Deploy code                        |
+| `railway logs`      | Xem logs realtime                  |
+| `railway open`      | Mở app trên browser                |
+| `railway domain`    | Tạo/quản lý domain                 |
+| `railway variables` | Quản lý env vars                   |
+| `railway status`    | Xem trạng thái deployment          |
 | `railway run <cmd>` | Chạy lệnh với env vars của Railway |
+
 
 ---
 
 ## Xử lý lỗi thường gặp
 
 ### Lỗi: Port không đúng
+
 ```
 Error: listen EADDRINUSE
 ```
+
 **Giải pháp:** Đảm bảo dùng `process.env.PORT` trong `main.ts`
 
 ### Lỗi: Build thất bại
+
 ```
 Error: Cannot find module 'dist/main'
 ```
+
 **Giải pháp:** Kiểm tra `package.json` có script `"build": "nest build"`
 
 ### Lỗi: Health check thất bại
+
 **Giải pháp:** Kiểm tra `healthcheckPath` trong `railway.json` trỏ đúng route
 
 ---
@@ -264,3 +274,4 @@ Error: Cannot find module 'dist/main'
 - [Railway Documentation](https://docs.railway.app)
 - [NestJS Documentation](https://docs.nestjs.com)
 - [Railway Nixpacks](https://nixpacks.com/docs)
+
